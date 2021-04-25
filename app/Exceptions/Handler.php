@@ -4,9 +4,16 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use App\Traits\JsonResponse;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Auth\AuthenticationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
 {
+    use JsonResponse;
     /**
      * A list of the exception types that are not reported.
      *
@@ -22,20 +29,40 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
-        'current_password',
         'password',
         'password_confirmation',
     ];
 
     /**
-     * Register the exception handling callbacks for the application.
+     * Handles all throwable exceptions
      *
-     * @return void
+     * @param $request
+     * @param \Throwable $e
+     *
+     * @return \Illuminate\Support\Facades\Response
      */
-    public function register()
+    public function render($request, Throwable $e)
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        if ($e instanceof MethodNotAllowedHttpException) {
+            return $this->methodNotAllowed(__('errors.method_not_allowed'));
+        }
+
+        if ($e instanceof NotFoundHttpException) {
+            return $this->notFound($e->getMessage() ? $e->getMessage() : __('errors.not_found'));
+        }
+
+        if ($e instanceof ModelNotFoundException) {
+            return $this->notFound(__('errors.not_found'));
+        }
+
+        if ($e instanceof ValidationException) {
+            return $this->failedValidation(__('errors.validation_failed'), $e->errors());
+        }
+
+        if ($e instanceof AuthenticationException) {
+            return $this->unauthorized($e->getMessage());
+        }
+
+        return $this->buildResponse($e->getMessage(), 'failed', config('errors.codes.server_error'));
     }
 }
