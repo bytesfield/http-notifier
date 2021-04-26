@@ -15,6 +15,8 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('topic_id')->constrained()->onDelete('cascade');
+            $table->string('url');
             $table->timestamps();
         });
     }

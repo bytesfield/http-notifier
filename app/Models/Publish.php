@@ -10,6 +10,8 @@ class Publish extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Get the topic that owns the Publish
      *

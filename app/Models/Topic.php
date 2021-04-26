@@ -13,6 +13,15 @@ class Topic extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
      * Get all of the subscriptions for the Topic
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
