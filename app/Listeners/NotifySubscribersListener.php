@@ -10,6 +10,13 @@ use Illuminate\Queue\InteractsWithQueue;
 class NotifySubscribersListener implements ShouldQueue
 {
     /**
+     * The number of times the queued listener may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 5;
+
+    /**
      * Create the event listener.
      *
      * @return void
