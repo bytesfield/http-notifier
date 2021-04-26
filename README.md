@@ -31,7 +31,7 @@ Open Postman run the Api endpoints. Documentation can be accessed below
 
 # Documentation
 
-The API documentation is hosted on [Postman Doc](https://web.postman.co/workspace/My-Workspace~335dde2a-c17a-430d-8370-584955c144f9/documentation/10912779-30d87554-db09-484a-849e-e5477b110428)
+The API documentation is hosted on [Postman Doc](https://documenter.getpostman.com/view/10912779/TzJybvEW)
 
 # Contribution
 
