@@ -15,7 +15,7 @@ Clone or download this repository to your machine:
 
 `composer install` to install all composer packages
 
-Create your database, rename `.env.example` to `.env` then, change `DB_DATABASE` value to your database.
+Create your database, rename `.env.example` to `.env` then, change `DB_DATABASE` value to your database and change `QUEUE_CONNECTION` from sync to database.
 
 `php artisan migrate` to create necessary tables
 
