@@ -52,7 +52,6 @@ class RequestProcessor
             throw new IsNullException("Empty method not allowed");
         }
 
-
         $this->response = $this->client->{strtolower($method)}(
             $relativeUrl,
             ["body" => json_encode($body)]

@@ -16,7 +16,7 @@ class PublishRepository
     use JsonResponse;
 
     /**
-     * Publish a topic.
+     * Publish a topic and dispatch PublishTopic event.
      *
      * @param \App\Http\Requests\PublishRequest $request
      * @param \App\Models\Topic $topic_name
@@ -31,6 +31,7 @@ class PublishRepository
 
             $topicID = Topic::where('name', $topic_name)->first()->id;
 
+            //Gets topic's subscribers
             $subscriptions = Subscription::where('topic_id', $topicID)->get();
 
             $payload = [
@@ -51,7 +52,7 @@ class PublishRepository
             }
         } catch (Exception $exception) {
 
-            throw new HttpException(503, 'Unable to subscribe', $exception);
+            throw new HttpException(503, 'Error occurred Unable to publish topic', $exception);
         }
     }
 }

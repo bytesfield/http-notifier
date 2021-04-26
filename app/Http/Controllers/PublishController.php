@@ -11,7 +11,7 @@ class PublishController extends Controller
     use JsonResponse;
 
     /**
-     * Execute publishing a topic.
+     * Publishes a topic.
      *
      * @param \App\Http\Requests\PublishRequest $request
      * @param \App\Http\Actions\PublishAction $publishAction

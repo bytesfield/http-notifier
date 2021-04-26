@@ -50,7 +50,7 @@ class PublishTest extends TestCase
     {
         return [
             'data' => [
-                "msg" => "Worked Msg"
+                "msg" => "This is a published message"
             ]
         ];
     }
