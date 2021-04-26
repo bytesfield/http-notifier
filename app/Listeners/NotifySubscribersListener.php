@@ -34,8 +34,6 @@ class NotifySubscribersListener implements ShouldQueue
      */
     public function handle(PublishTopicEvent $event)
     {
-        $response = $this->processPublish->notify($event->subscriptions, $event->payload);
-
-        return $response;
+        $this->processPublish->notify($event->subscriptions, $event->payload);
     }
 }

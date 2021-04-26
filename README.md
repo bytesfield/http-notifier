@@ -21,7 +21,7 @@ Create your database, rename `.env.example` to `.env` then, change `DB_DATABASE`
 
 ### Step 3
 
-Start your laravel development server : `php artisan serve` this serve the application to default `localhost:8000`
+Start your laravel development server : `php artisan serve` this serves the application to default `localhost:8000`
 
 When publishing a topic make sure you execute `php artisan queue:work` on your terminal to dispatch the necessary queued jobs.
 
