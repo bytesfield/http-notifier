@@ -7,7 +7,6 @@ use App\Exceptions\IsNullException;
 
 class RequestProcessor
 {
-
     /**
      * Instance of Client
      * @var Client

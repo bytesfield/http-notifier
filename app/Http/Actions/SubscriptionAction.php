@@ -2,20 +2,15 @@
 
 namespace App\Http\Actions;
 
-use Exception;
 use App\Http\Requests\SubscriptionRequest;
 use App\Http\Repositories\SubscriptionRepository;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class SubscriptionAction
 {
-
-
     public function __construct(SubscriptionRepository $subscriptionRepository)
     {
         $this->subscriptionRepository = $subscriptionRepository;
     }
-
 
     /**
      * Execute Subscription.
@@ -23,6 +18,7 @@ class SubscriptionAction
      * @param \App\Http\Requests\SubscriptionRequest $request
      * @param \App\Models\Topic $topic
      *
+     * @return mixed
      */
     public function execute(SubscriptionRequest $request, $topic)
     {

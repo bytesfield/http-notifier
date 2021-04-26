@@ -5,11 +5,20 @@ namespace App\Http\Controllers;
 use App\Traits\JsonResponse;
 use App\Http\Actions\PublishAction;
 use App\Http\Requests\PublishRequest;
-use Illuminate\Http\Request;
 
 class PublishController extends Controller
 {
     use JsonResponse;
+
+    /**
+     * Execute publishing a topic.
+     *
+     * @param \App\Http\Requests\PublishRequest $request
+     * @param \App\Http\Actions\PublishAction $publishAction
+     * @param \App\Models\Topic $topic
+     * 
+     *@return \App\Traits\JsonResponse
+     */
 
     public function store(PublishRequest $request, PublishAction $publishAction, $topic)
     {

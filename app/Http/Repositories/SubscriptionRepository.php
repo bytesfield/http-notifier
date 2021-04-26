@@ -13,6 +13,15 @@ class SubscriptionRepository
 {
     use JsonResponse;
 
+    /**
+     * Create a subscription.
+     *
+     * @param \App\Http\Requests\SubscriptionRequest $request
+     * @param \App\Models\Topic $topic_name
+     * 
+     *@return \App\Models\Subscription
+     */
+
     public function createSubscription(SubscriptionRequest $request, $topic_name)
     {
         try {

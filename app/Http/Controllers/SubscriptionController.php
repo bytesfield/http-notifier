@@ -12,7 +12,18 @@ class SubscriptionController extends Controller
 {
     use JsonResponse;
 
-    public function store(SubscriptionRequest $request, Subscription $subscription, SubscriptionAction $subscriptionAction, $topic)
+    /**
+     * Execute publishing a topic.
+     *
+     * @param \App\Http\Requests\SubscriptionRequest $request
+     * @param \App\Http\Actions\SubscriptionAction $subscriptionAction
+     ** @param \App\Models\Subscription $subscription
+     * @param \App\Models\Topic $topic
+     * 
+     *@return \App\Traits\JsonResponse
+     */
+
+    public function store(SubscriptionRequest $request, SubscriptionAction $subscriptionAction, Subscription $subscription,  $topic)
     {
         $url = $request->url;
 

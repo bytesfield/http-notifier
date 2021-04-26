@@ -134,15 +134,14 @@ trait JsonResponse
         int $statusCode,
         array $data = [],
         array $headers = []
-    )
-    {
+    ) {
         $responseData = [
             'status' => $status,
             'statusCode' => $statusCode,
             'message' => $message,
         ];
 
-        if (! empty($data)) {
+        if (!empty($data)) {
             $responseData['data'] = $data;
         }
 

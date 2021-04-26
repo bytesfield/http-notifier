@@ -6,7 +6,6 @@ use App\Classes\RequestProcessor;
 
 class ProcessPublish
 {
-
     /**
      * Http Request Processor variable
      *

@@ -20,7 +20,8 @@ class PublishAction
      *
      * @param \App\Http\Requests\PublishRequest $request
      * @param \App\Models\Topic $topic
-     *
+     * 
+     *@return mixed
      */
     public function execute(PublishRequest $request, $topic)
     {

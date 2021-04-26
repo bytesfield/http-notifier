@@ -15,6 +15,15 @@ class PublishRepository
 {
     use JsonResponse;
 
+    /**
+     * Publish a topic.
+     *
+     * @param \App\Http\Requests\PublishRequest $request
+     * @param \App\Models\Topic $topic_name
+     * 
+     *@return array $payload
+     */
+
     public function publishTopic(PublishRequest $request, $topic_name)
     {
         try {
@@ -36,9 +45,9 @@ class PublishRepository
 
             if ($savePublish) {
 
-                $publishedResponse = PublishTopicEvent::dispatch($subscriptions, $payload);
+                PublishTopicEvent::dispatch($subscriptions, $payload);
 
-                return $publishedResponse;
+                return $payload;
             }
         } catch (Exception $exception) {
 
