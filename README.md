@@ -1,4 +1,4 @@
-# Authentication Service Lumen
+# HTTP-Notifier
 
 A simple HTTP Notification System (Http-Notifier) Using the Observer Design Pattern built with Laravel.
 
